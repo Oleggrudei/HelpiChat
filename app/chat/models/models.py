@@ -1,5 +1,4 @@
 from datetime import datetime
-
 from pydantic import BaseModel
 from sqlalchemy.orm import Mapped, mapped_column
 

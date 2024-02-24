@@ -43,12 +43,12 @@ def delete_user_chat_by_id(user_id: int):
 
 # update_user_status
 
-def update_user_state_by_id(user_id: int, state: str):
+def update_user_state_by_id(chat_id: int, state: str):
     """
     Update user state by id from DB (Postgres)
     """
     try:
-        return update_user_state(user_id, state)
+        return update_user_state(chat_id, state)
     except Exception as e:
         print(e)
         return status.HTTP_400_BAD_REQUEST

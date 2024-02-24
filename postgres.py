@@ -221,15 +221,15 @@ def select_one_chat_user(chat_id):
         return chat_details
 
 
-def update_user_state(user_id: int, new_state: str):
+def update_user_state(chat_id: int, new_state: str):
     with session_factory() as session:
-        chat_info = session.get(Chats, user_id)
+        chat_info = session.get(Chats, chat_id)
 
         if not chat_info:
             return None
 
         chat_info.state = new_state
-
+        session.commit()
         chat_details = ChatsDetails(
             chat_id=chat_info.chat_id,
             operator_id=chat_info.operator_id,
